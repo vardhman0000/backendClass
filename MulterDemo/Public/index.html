@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Upload File</title>
+</head>
+<body>
+    <h1 class="text-3xl font-bold underline">
+        File Upload Utility
+    </h1>
+    <form action="/uploadfile" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileName" />
+        <input type="submit" value="Send File">
+    </form>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+</html>

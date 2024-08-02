@@ -1,0 +1,8 @@
+{
+  "students": [
+    { "name": "Stuxnet", "city": "Unknown" },
+    { "name": "Ptani", "city": "Earth" },
+    { "name": "why?", "city": "somewhere" }
+  ],
+  "teachers": [{ "name": "Alien", "city": "Mars" }]
+}

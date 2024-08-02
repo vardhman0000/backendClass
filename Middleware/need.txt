@@ -1,0 +1,9 @@
+Why we need middleware??
+
+In a client server architecture middlewares lies in the middle of client and server
+
+Client --> Middleware --> Server
+
+-> Instead of writing user authentication logic at each endpoint, this logic can be written in middleware that will execute for sure before going to any endpoint
+
+-> next() ---> We can execute some code before routing 
