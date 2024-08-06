@@ -3,19 +3,23 @@ const mongoose = require('mongoose');
 
 const StudentSchema = new mongoose.Schema({
     name : {
-        name : "String",
+        type : "String",
         required : true
     },
     rollno : {
-        rollno : Number,
+        type : Number,
         required : true
     },
-    age : {
-        age : Number,
-    },
-    subject : {
-        subject : ["C++", "Java", "Cybersecurity", "Web D"]
+    is_married : {
+        type : Boolean,
+        default: false
     }
+    // age : {
+    //     age : Number,
+    // },
+    // subject : {
+    //     subject : ["C++", "Java", "Cybersecurity", "Web D"]
+    // }
 });
 
 const StudentModel = mongoose.model("StudentModel", StudentSchema);

@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 
 const EmployeeSchema = new mongoose.Schema({
     emp_id : {
-        emp_id : Number,
+        type : Number,
         required : true
     },
     emp_name : {
-        emp_name : "String",
+        type : "String",
         required : true
     },
     emp_department : {
-        emp_department : "String",
+        type : "String",
         required : true
     },
     emp_salary : {
-        emp_salary : Number,
+        type : Number,
         required : true
     }
 });
