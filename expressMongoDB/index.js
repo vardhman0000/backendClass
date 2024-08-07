@@ -62,6 +62,10 @@ app.get("/readData/:name", async (req,res) => {
         let name = req.params.name;
         let data = await StudentModel.find( {name : name} );
         res.send(data);
+
+        // let student = new StudentModel.find(req.params.name); // --> This is ORM Approach --> ORM is Object Relation Mapping --> Advanced Queries can't be applied on ORM Approach
+        // console.log(student); 
+        // res.send(student);
     }
     catch(err){
         res.send(err)
