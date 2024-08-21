@@ -2,7 +2,7 @@ const express = require('express');
 const {connection} = require('./config/db');
 const {StudentModel} = require('./models/Student.model');
 const {StudentRouter} = require('./router/Student.router');
-
+require('dotenv').config()
 
 let app = express();
 
@@ -16,7 +16,7 @@ app.get("/", (req,res) => {
 })
 
 
-app.listen(4444, async () => { 
+app.listen(process.env.PORT, async () => { 
     try {
         await connection; // Connect to Database on Starting the Server
         console.log("DB Connected!!");
@@ -26,5 +26,5 @@ app.listen(4444, async () => {
         console.log("Connection not Established!!");
         console.error(err);
     }
-    console.log("Server started at port 4444!!");
+    console.log(`Server started at port ${process.env.PORT}!!`);
 })

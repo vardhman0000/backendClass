@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const StudentSchema = mongoose.Schema({
-    name : String,
+    name : {
+        type : String,
+        required : true
+    },
     age : Number,
     is_married : Boolean
 });

@@ -1,7 +1,6 @@
 const express = require('express');
 const StudentRouter = express.Router();
-const StudentModel = require('../models/Student.model');
-
+const {StudentModel} = require('../models/Student.model');
 
 
 StudentRouter.post("/add", async (req,res) => { 
@@ -19,7 +18,7 @@ StudentRouter.post("/add", async (req,res) => {
 });
 
 
-StudentRouter.get("/students", async (req,res) => { 
+StudentRouter.get("/", async (req,res) => { 
     try{
         let data = await StudentModel.find();
         res.status(200).send(data);
