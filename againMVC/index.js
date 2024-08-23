@@ -3,6 +3,8 @@ const {connection} = require('./config/db');
 const {UserModel} = require('./models/User.model');
 const {StudentRouter} = require('./router/Student.router');
 require('dotenv').config()
+var jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 
 let app = express();
@@ -20,21 +22,33 @@ app.get("/", (req,res) => {
 app.get("/data",  (req,res) => { 
     const token = req.headers.authorization;
     try {
-        if(token == "stuxnet"){
-            res.status(200).send("Here's your Data!!");
-        }
+        jwt.verify(token, 'coffee', function(err, decoded) {
+            console.log(decoded.class) // g29
+            if(decoded){
+                res.status(200).send("Yeh lo aapka Data :) ")
+            }
+            else{
+                res.status(402).send(":( Token galat hai :(");
+            }
+        });
     } catch (err) {
         res.status(402).send("Abe Token shi leke aa!!")
     }
- });
+});
 
 
 app.post("/user/register", async (req,res) => { 
-    const payload = req.body;
+    const {name, email, password, mobile} = req.body;
+    // const payload = req.body;
     try{
-        const user = new UserModel(payload);
-        await user.save();
-        res.status(200).send("User Refgistered Successfully :) ");
+
+        bcrypt.hash(password, 5, async (err, hash) => {
+            console.log(hash);
+            const user = new UserModel({name, email, password:hash, mobile});
+            await user.save();
+            res.status(200).send("User Refgistered Successfully :) ");
+        });
+
     }
     catch(err){
         res.status(500).send("Something went Wrong :( ");
@@ -42,20 +56,29 @@ app.post("/user/register", async (req,res) => {
 })
 
 app.post("/user/signin" , async (req,res) => { 
-    const payload = req.body;
+    const {email, password} = req.body;
     try{
-        let email = payload.email;
-        let password = payload.password;
-        const user = await UserModel.find( {email, password} );
+
+        const user = await UserModel.find( {email} );
 
         if(user.length > 0){
-            res.status(200).send({
-                message : "Signin Successful :) ",
-                token : "stuxnet"
+
+            bcrypt.compare(password, user[0].password, function(err, result) {
+                if(result){
+                    var token = jwt.sign({ class: 'g29' }, 'coffee', { expiresIn: '1h' });
+                    res.status(200).send({
+                        message : "Signin Successful :) ",
+                        token : token
+                    });
+                }
+                else{
+                    res.status(402).send("Wrong Password :( ");
+                }
             });
+
         }
         else{
-            res.status(402).send("Wrong Creds :( ");
+            res.status(402).send("Wrong Creds!!")
         }
     }
     catch(err){
