@@ -41,4 +41,20 @@ StudentRouter.delete("/delete/:id", async (req,res) => {
  });
 
 
+ // This route should be at last
+StudentRouter.get("*", (req,res,next) => { 
+    // res.send({"message" : "Invalid URL", "status" : "ERROR"});
+    let err = new Error("Students Bhag jao yaha se");
+    err.statusCode = 404;
+    next(err);
+});
+
+//Global Error Handling
+StudentRouter.use((err,req,res,next) => { 
+    res.status(err.statusCode).json({
+        message : err.message,
+    });
+});
+
+
 module.exports = {StudentRouter};

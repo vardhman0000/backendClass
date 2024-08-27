@@ -90,7 +90,7 @@ app.post("/user/signin" , async (req,res) => {
 // This route should be at last
 app.get("*", (req,res,next) => { 
     // res.send({"message" : "Invalid URL", "status" : "ERROR"});
-    let err = new Error("Invalid URL");
+    let err = new Error("Bhag jao yaha se");
     err.statusCode = 404;
     next(err);
 });
