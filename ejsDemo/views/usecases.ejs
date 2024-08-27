@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usecases</title>
+</head>
+<body>
+    <h1>This is Usecases Demo</h1>
+    <hr>
+
+    <!-- Passing Dynamic Value -->
+    <h2>My name is <%= name %> </h2>
+
+    <!-- EJS Comments -->
+    <%# This is an EJS Comment, we use # from comment in EJS Tag %>
+
+    <!-- IF Block -->
+    <% if (20<30) { %>
+            <h2>Greater</h2>
+    <% } %>
+
+    <!-- IF-ELSE Block -->
+    <% if (20 < 30) { %>
+        <h2>SMALLER</h2>
+    <% } else { %>
+        <h2>GREATER</h2>
+    <% } %>
+
+
+    <% if (marks > 90) { %>
+            <h2>A</h2>
+    <% } else if (marks > 80 && marks < 90) { %>
+            <h2>B</h2>
+    <% } else { %>
+            <h2>C</h2>
+    <% } %>
+
+
+</body>
+</html>
