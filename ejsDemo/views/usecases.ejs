@@ -28,6 +28,7 @@
     <% } %>
 
 
+    <!-- IF-ELSEIF-ELSE Block -->
     <% if (marks > 90) { %>
             <h2>A</h2>
     <% } else if (marks > 80 && marks < 90) { %>
@@ -36,6 +37,51 @@
             <h2>C</h2>
     <% } %>
 
+
+    <!-- FOR Loop -->
+    <% for(let i=0; i<5; i++){ %>
+        <h3> <%= marks %> </h3>
+    <% } %>
+
+
+    <!-- WHILE Loop -->
+    <% let i = 0 %>
+    <% while(i<5){ %>
+        <h3> Hello World </h3>
+        <% i++ %>
+    <% } %>
+
+
+    <!-- Accessing Array -->
+    <li>  <%= arr[0] %> </li>
+    <li>  <%= arr[1] %> </li>
+    <li>  <%= arr[2] %> </li>
+
+
+    <!-- Accessing Array with Loop -->
+    <% for(let i=0; i<arr.length; i++){ %>
+        <h3> <%= arr[i] %> </h3>
+    <% } %>
+
+
+    <!-- FOR-OF Loop -->
+    <% for(let x of arr){ %>
+        <li> <%= x %> </li>
+    <% } %>
+
+
+    <!-- FOR-IN Loop -->
+    <% for(let x in arr){ %>
+        <h4> <%= arr[x] %> </h4>
+    <% } %>
+
+
+    <!-- FUNCTIONS -->
+    <% function printA(){ 
+        return "<h2> Inside Function </h2>"
+    } %>
+
+    <%- printA(); %>
 
 </body>
 </html>

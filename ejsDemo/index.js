@@ -30,7 +30,8 @@ app.get("/usecases", (req,res) => {
 
 app.get("/marks", (req,res) => { 
     let marks = req.query.marks;
-    res.render('usecases', {marks : marks,name:"yeri"})
+    let arr = ['Vardhman', 'Stuxnet', 'Mydoom'];
+    res.render('usecases', {marks : marks,name:"yeri", arr})
 });
 
 
