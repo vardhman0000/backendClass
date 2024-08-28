@@ -34,6 +34,28 @@ app.get("/marks", (req,res) => {
     res.render('usecases', {marks : marks,name:"yeri", arr})
 });
 
+app.get("/cart", (req,res) => { 
+    let arr = [
+        {
+            url : "https://image.shutterstock.com/image-vector/dotted-spiral-vortex-royaltyfree-images-600nw-2227567913.jpg",
+            name : "Smartphone",
+            price : 100000
+        },
+        {
+            url : "https://image.shutterstock.com/image-vector/dotted-spiral-vortex-royaltyfree-images-600nw-2227567913.jpg",
+            name : "Earbuds",
+            price : 150000
+        },
+        {
+            url : "https://image.shutterstock.com/image-vector/dotted-spiral-vortex-royaltyfree-images-600nw-2227567913.jpg",
+            name : "Smart Watch",
+            price : 200000
+        },
+
+    ];
+    res.render("cart", {arr});
+});
+
 
 app.listen(port, () => { 
     console.log(`Server Started at ${port}`);

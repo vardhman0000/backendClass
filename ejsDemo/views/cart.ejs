@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Cart Page</h1>
+    <hr>
+
+    <div style="display: flex; flex-direction: row; padding: 20px; gap: 10px;">
+        <% for(let i=0; i<arr.length; i++){ %>
+            <% let ele = arr[i] %>
+            <%- include("./partials/singlecart.ejs", ele) %>
+        <% } %>
+    </div>
+    
+
+</body>
+</html>
