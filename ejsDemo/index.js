@@ -20,9 +20,19 @@ app.get("/", (req,res) => {
     // res.sendFile(`${__dirname}/views/index.html`);
 
 
-    res.render('index', {price : 99000, color : "Celestial Black"});
+    // res.render('index', {price : 99000, color : "Celestial Black"});
+    app.render('home', {title : "Home"});
     
 });
+
+app.get("/about", (req,res) => { 
+    res.render('about', {title : "About"});
+});
+
+app.get("/contact", (req,res) => { 
+    res.render('contact', {title : "Contact"});
+});
+
 
 app.get("/usecases", (req,res) => { 
     res.render('usecases', {name : "Vardhman"});
