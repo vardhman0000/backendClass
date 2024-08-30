@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <h1>Welcome to ToDo App</h1>
+
+    <h2>ToDo Items</h2>
+
+    <a href="/todos/addtodo">Add Todo</a>
+
+    <% for(let i=0; i<arr.length; i++){ %>
+        <li> <%= arr[i].name %> </li>
+    <% } %>
+
+
+</body>
+</html>

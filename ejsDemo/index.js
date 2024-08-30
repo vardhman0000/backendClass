@@ -20,8 +20,8 @@ app.get("/", (req,res) => {
     // res.sendFile(`${__dirname}/views/index.html`);
 
 
-    // res.render('index', {price : 99000, color : "Celestial Black"});
-    app.render('home', {title : "Home"});
+    res.render('index', {price : 99000, color : "Celestial Black"});
+    // app.render('home', {title : "Home"});
     
 });
 
