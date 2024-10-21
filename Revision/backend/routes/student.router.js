@@ -1,16 +1,11 @@
 const express = require('express');
 const StudentRouter = express.Router();
-const {StudentModel} = require("../models/student.model");
+const { getStudentData } = require('../controller/student.controller');
+const { SaveStudent } = require('../controller/saveStudent.controller');
 
-StudentRouter.get("/all", async (req,res) => { 
-    try {
-        const data = await StudentModel.find();
-        res.send(data);
-    } catch (error) {
-        console.error("Something went Wrong!!");
-        
-    }
-});
+StudentRouter.get("/all", getStudentData);
+
+StudentRouter.post("/save", SaveStudent);
 
 
 module.exports = {StudentRouter};
