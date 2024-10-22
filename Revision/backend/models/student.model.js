@@ -11,14 +11,18 @@ const StudentSchema = mongoose.Schema({
         type : String,
         required : true,
     },
+    marks : {
+        type : Number,
+        required : true,
+        max : 100,
+    },
     year : {
         type : Number,
         required : true,
         trim : true,
         min : 1,
         max : 4,
-    }
-
+    },
 });
 
 const StudentModel = mongoose.model('student', StudentSchema);
